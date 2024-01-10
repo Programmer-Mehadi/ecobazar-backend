@@ -11,6 +11,12 @@ router.post(
   UserController.insertUser
 )
 
+router.get("/", UserController.getAllUser)
+
+router.get("/:id", UserController.getSingleUser)
+
+router.patch("/:id", UserController.updateUser)
+
 const UserRoutes = router
 
 export default UserRoutes
