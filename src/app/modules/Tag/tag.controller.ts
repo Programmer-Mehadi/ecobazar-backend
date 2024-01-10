@@ -15,7 +15,7 @@ const createTag = catchAsync(async (req, res, next) => {
   })
 })
 
-const gatAllTag = catchAsync(async (req, res, next) => {
+const getAllTag = catchAsync(async (req, res, next) => {
   const result = await TagService.getAllTagFromDB()
   return sendResponse({
     res,
@@ -42,6 +42,6 @@ const updateTag = catchAsync(async (req, res, next) => {
   })
 })
 
-const TagController = { createTag, gatAllTag, updateTag }
+const TagController = { createTag, getAllTag, updateTag }
 
 export default TagController

@@ -6,7 +6,7 @@ import express from "express"
 const router = express.Router()
 
 router.post("/", validateRequest(TagValidation.create), TagController.createTag)
-router.get("/", TagController.gatAllTag)
+router.get("/", TagController.getAllTag)
 router.patch(
   "/:id",
   validateRequest(TagValidation.create),

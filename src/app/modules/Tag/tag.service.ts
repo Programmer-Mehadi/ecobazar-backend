@@ -19,7 +19,6 @@ const getAllTagFromDB = async () => {
 
 const updateTagToDB = async (id: string, data: ITag) => {
   const tag = await Tag.findByIdAndUpdate(id, data, { new: false })
-  console.log(tag)
   return tag
 }
 
