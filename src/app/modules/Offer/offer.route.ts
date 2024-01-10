@@ -1,6 +1,6 @@
 import validateRequest from "@src/app/middlewares/validateRequets"
 import OfferController from "@src/app/modules/Offer/offer.controller"
-import OfferValidation from "@src/app/modules/Offer/offervalidation"
+import OfferValidation from "@src/app/modules/Offer/offer.validation"
 
 import express from "express"
 
