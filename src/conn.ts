@@ -1,10 +1,10 @@
 import exporess, { Application, Request, Response } from "express"
 import cors from "cors"
 import mongoose from "mongoose"
-import config from "./config/index"
-import routes from "./app/routes/routes"
-import zodValidationHandler from "./app/middlewares/zodValidation"
-import errorHandler from "./app/middlewares/errorHandler"
+import config from "@src/config/index"
+import routes from "@src/app/routes/routes"
+import zodValidationHandler from "@src/app/middlewares/zodValidation"
+import errorHandler from "@src/app/middlewares/errorHandler"
 
 const app: Application = exporess()
 
@@ -19,14 +19,14 @@ mongoose.connect(config.database_url as string)
 console.log("🌹 Connected to MongoDB 💋")
 // Routes setup (add your routes here)
 
-app.use("/", (req: Request, res: Response) => {
+app.use("/api/v1", routes)
+
+app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
     message: "✔ Ecobazar Backend Server running 💖",
   })
 })
-
-app.use("/api/v1", routes)
 
 app.use(zodValidationHandler)
 app.use(errorHandler)
@@ -34,7 +34,7 @@ app.use(errorHandler)
 app.use("*", (req, res) => {
   return res.status(404).json({
     success: false,
-    error: "Route not found!",
+    error: "Route not found! 🚫",
   })
 })
 

@@ -1,6 +1,7 @@
+import app from "@src/conn"
 import config from "./config/index"
-import app from "./conn"
 
+import "module-alias/register"
 async function main() {
   try {
     app.listen(config.port, () =>
