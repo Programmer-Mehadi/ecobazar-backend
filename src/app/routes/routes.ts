@@ -3,6 +3,8 @@ import UserRoutes from "../modules/User/user.route"
 import AuthRoutes from "@src/app/modules/Auth/auth.route"
 import CategoryRoutes from "@src/app/modules/Category/category.route"
 import TagRoutes from "@src/app/modules/Tag/tag.route"
+import ProductRoutes from "@src/app/modules/Product/product.route"
+import BrandRoutes from "@src/app/modules/Brand/brand.route"
 const routes = express.Router()
 
 const moduleRoutes = [
@@ -21,6 +23,14 @@ const moduleRoutes = [
   {
     path: "/tag",
     route: TagRoutes,
+  },
+  {
+    path: "/brand",
+    route: BrandRoutes,
+  },
+  {
+    path: "/product",
+    route: ProductRoutes,
   },
 ]
 
