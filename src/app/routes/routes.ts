@@ -7,6 +7,7 @@ import ProductRoutes from "@src/app/modules/Product/product.route"
 import BrandRoutes from "@src/app/modules/Brand/brand.route"
 import OfferRoutes from "@src/app/modules/Offer/offer.route"
 import WishListRoutes from "@src/app/modules/WishList/wishlist.route"
+import FaqRoutes from "@src/app/modules/Faq/faq.route"
 const routes = express.Router()
 
 const moduleRoutes = [
@@ -41,6 +42,10 @@ const moduleRoutes = [
   {
     path: "/wishlist",
     route: WishListRoutes,
+  },
+  {
+    path: "/faq",
+    route: FaqRoutes,
   },
 ]
 
