@@ -12,6 +12,14 @@ const getSingleBlogDetailsFromDB = async (id: string) => {
     .populate("tagId", "name _id")
     .populate("modifyerId", "firstName lastName image _id")
     .populate("userId", "firstName lastName image _id")
+    .populate({
+      path: "comments",
+      populate: {
+        path: "userId",
+        model: "User",
+        select: "firstName lastName image _id",
+      },
+    })
     .exec()
 }
 
@@ -21,6 +29,14 @@ const getAllBlogsFromDB = async () => {
     .populate("tagId", "name _id")
     .populate("modifyerId", "firstName lastName image _id")
     .populate("userId", "firstName lastName image _id")
+    .populate({
+      path: "comments",
+      populate: {
+        path: "userId",
+        model: "User",
+        select: "firstName lastName image _id",
+      },
+    })
     .exec()
 }
 
