@@ -34,9 +34,19 @@ const updateCommentToDB = async (id: string, data: IComment) => {
   return comment
 }
 
-const deleteCommentFromDB = async (id: string) => {
-  const comment = await Comment.findByIdAndDelete(id)
-  return comment
+const deleteCommentFromDB = async (id: string, blogId: string) => {
+  const savedtoBlog = await Blog.findByIdAndUpdate(blogId, {
+    $pull: {
+      comments: id,
+    },
+  })
+  if (savedtoBlog) {
+    const comment = await Comment.findByIdAndDelete(id)
+    return comment
+  } else {
+    const comment = await Comment.findByIdAndDelete(id)
+    return comment
+  }
 }
 
 const CommentService = {

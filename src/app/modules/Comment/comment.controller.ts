@@ -65,7 +65,8 @@ const updateComment = catchAsync(async (req: any, res: any, next) => {
 
 const deleteComment = catchAsync(async (req: any, res: any, next) => {
   const { id } = req.params
-  const result = await CommentService.deleteCommentFromDB(id)
+  const blogId = req.body.blogId
+  const result = await CommentService.deleteCommentFromDB(id, blogId)
   return sendResponse({
     res,
     data: {
